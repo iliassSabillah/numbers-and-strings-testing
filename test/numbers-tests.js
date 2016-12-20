@@ -32,4 +32,14 @@ describe('numbers tests', () => {
 		expect(result1).to.be.a('array');
 		expect(result1).to.be.instanceof(Array);
 	})
+
+    // uniqueNums takes an array of numbers and returns only the unique numbers
+  it('uniqueNums() should output unique numbers', ()=>{
+    var result1 = func.uniqueNums([1,9, 2,9,10,12]);
+    expect(result1).have.members([1,2,10,12])
+    
+    // reppetiton on next two lines 
+    expect(result1).to.be.a('array');
+    expect(result1).to.be.instanceof(Array);
+  })
 });

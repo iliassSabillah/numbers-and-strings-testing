@@ -2,7 +2,7 @@
 
 const add = (a, b) => a + b;
 
-const filterEvens = ([...args])=>{
+const filterEvens = (args)=>{
 	return args.reduce((a,b)=>{
 		if(typeof b === 'number' && b % 2 === 0){
 			a.push(b);
@@ -19,15 +19,31 @@ const secondSmallest = (arr) => {
 }
 
 const uniqueNums =(arr) => {
-	let obj= {};
-	return arr.reduce((a,b) => {
-		return obj[a] ? obj[a]++ : obj 
-	})
-
+	var output = [];
+	let uniqsObj = arr.reduce((obj,a) => {
+		if(obj[a]){
+		  obj[a] = false;
+		  return obj
+		}else { 
+		  obj[a] = true;
+		}
+		return obj
+	}, {})
+	
+	for(var key in uniqsObj){
+	  if(uniqsObj[key]){
+	    output.push(parseInt(key));
+	  }
+	}
+	
+	return output;
 }
+
+
 module.exports = {
   add,
   secondSmallest,
   filterEvens,
+  uniqueNums
 };
 
